@@ -3,13 +3,25 @@ $(function (){
        SECRET_KEY = "D3E79385-74E2-3838-FF6D-0B7EA9CCFC00",
        VERSION = "v1";
        
-    Backendless.initApp(APPLICATION_ID, SECRET_KEY, VERSION);   
+    Backendless.initApp(APPLICATION_ID, SECRET_KEY, VERSION); 
     
+    var dataStore = Backendless.Persistence.of(Posts);
+    var post = new Posts({title:"My First Blog Post", content:"My First Blog Post Content", email:"email@email.com"});
+    dataStore.save(post);
+    
+    /*****************************************
     var user = new Backendless.User();
     user.email = "caitlinlopez28@gmail.com";
     user.password = "password";
     Backendless.UserService.register(user);
+    *****************************************/
     
 });
 
+function Posts(args){
+    args = args || {};
+    this.title = args.title || "";
+    this.content = args || "";
+    this.authorEmail = args.emailEmail || "";
+}
 
