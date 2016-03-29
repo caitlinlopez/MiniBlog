@@ -6,3 +6,20 @@ body {
 main {
    flex: 1 0 auto;
 }
+
+/*Blog Posts*/
+
+.blog-post{
+    margin-bottom: 60px;
+}
+
+.blog-post-title{
+    margin-bottom: 5px;
+    font-size: 40px;
+}
+
+.blog-post-meta{
+    margin-bottom: 20px;
+    color: gray;
+    font-style: italic;
+}
