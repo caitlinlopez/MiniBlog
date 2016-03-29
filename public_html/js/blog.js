@@ -33,4 +33,3 @@ function Posts(args){
     this.content = args.content || "";
     this.authorEmail = args.authorEmail || "";
 }
-
