@@ -20,6 +20,12 @@ $(function (){
         Backendless.UserService.login(email, password, true, new Backendless.Async(userLoggedIn, gotError));    
     });
     
+    $(document).on('click', '.add-blog', function(){
+        var addBlogScript = $("#add-blog-template").html();
+        var addBlogTemplate = Handlebars.compile(addBlogScript);
+    
+        $('.main-container').html(addBlogTemplate);
+    })
 });
 
 function Posts(args){
