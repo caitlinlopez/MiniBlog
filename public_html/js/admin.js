@@ -19,6 +19,7 @@ $(function (){
             
         Backendless.UserService.login(email, password, true, new Backendless.Async(userLoggedIn, gotError));    
     });
+    
 });
 
 function Posts(args){
