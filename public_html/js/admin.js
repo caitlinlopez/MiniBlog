@@ -27,7 +27,6 @@ $(function (){
         var addBlogTemplate = Handlebars.compile(addBlogScript);
     
         $('.main-container').html(addBlogTemplate);
-        tinymce.init({ selector:'textarea' });
     })
     $(document).on('submit', '.form-add-blog', function(){
         event.preventDefault();
@@ -36,18 +35,26 @@ $(function (){
             title = data[0].value,
             content = data[1].value;
             
-        var dataStore = Backendless.Persistence.of(Posts);
-        
+            if (content === "" || title === "") {
+       Materialize.toast("Please insert content to submit");
+            }
+            
+            else if(content === ""){ var dataStore = Backendless.Persistence.of(Posts);
         var postObject = new Posts({
            title: title,
            content: content,
            authorEmail: Backendless.UserService.getCurrentUser().email
-        });
+        }
+        
+      
+            
+        );
         
         dataStore.save(postObject);
         
         this.title.value = "";
         this.content.value = "";
+            }
     });
     
     $(document).on('click', '.logout', function (){
